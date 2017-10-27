@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Resevations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nbreservedseats</th>
+                <th>Publicationdate</th>
+                <th>Passenger</th>
+                <th>Flight</th>
+                <th>Wasdone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for resevation in resevations %}
+            <tr>
+                <td><a href="{{ path('resevation_show', { 'id': resevation.id }) }}">{{ resevation.id }}</a></td>
+                <td>{{ resevation.nbReservedSeats }}</td>
+                <td>{% if resevation.publicationDate %}{{ resevation.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ resevation.passenger }}</td>
+                <td>{{ resevation.flight }}</td>
+                <td>{% if resevation.wasDone %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('resevation_show', { 'id': resevation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('resevation_edit', { 'id': resevation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('resevation_new') }}">Create a new resevation</a>
+        </li>
+    </ul>
+{% endblock %}

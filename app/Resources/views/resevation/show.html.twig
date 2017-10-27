@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Resevation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ resevation.id }}</td>
+            </tr>
+            <tr>
+                <th>Nbreservedseats</th>
+                <td>{{ resevation.nbReservedSeats }}</td>
+            </tr>
+            <tr>
+                <th>Publicationdate</th>
+                <td>{% if resevation.publicationDate %}{{ resevation.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Passenger</th>
+                <td>{{ resevation.passenger }}</td>
+            </tr>
+            <tr>
+                <th>Flight</th>
+                <td>{{ resevation.flight }}</td>
+            </tr>
+            <tr>
+                <th>Wasdone</th>
+                <td>{% if resevation.wasDone %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('resevation_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('resevation_edit', { 'id': resevation.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

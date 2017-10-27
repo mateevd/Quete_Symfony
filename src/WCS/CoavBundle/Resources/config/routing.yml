@@ -1,0 +1,7 @@
+wcs_coav_resevation:
+    resource: "@WCSCoavBundle/Resources/config/routing/resevation.yml"
+    prefix:   /resevation
+
+wcs_coav_homepage:
+    path:     /
+    defaults: { _controller: WCSCoavBundle:Default:index }

@@ -1,0 +1,24 @@
+resevation_index:
+    path:     /
+    defaults: { _controller: "WCSCoavBundle:Resevation:index" }
+    methods:  GET
+
+resevation_show:
+    path:     /{id}/show
+    defaults: { _controller: "WCSCoavBundle:Resevation:show" }
+    methods:  GET
+
+resevation_new:
+    path:     /new
+    defaults: { _controller: "WCSCoavBundle:Resevation:new" }
+    methods:  [GET, POST]
+
+resevation_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WCSCoavBundle:Resevation:edit" }
+    methods:  [GET, POST]
+
+resevation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WCSCoavBundle:Resevation:delete" }
+    methods:  DELETE
